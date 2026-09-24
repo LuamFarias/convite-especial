@@ -1,0 +1,1413 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Um Convite Especial ❤️</title>
+
+
+    <style>
+
+        /* =========================================
+           CONFIGURAÇÕES GERAIS
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #121212;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        .phone-container {
+
+            width: 360px;
+
+            height: 700px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #d32f2f 0%,
+                    #8e0000 100%
+                );
+
+            border: 8px solid #222;
+
+            border-radius: 40px;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.65);
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        /* =========================================
+           NOTCH
+        ========================================= */
+
+        .phone-container::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 9px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 120px;
+
+            height: 24px;
+
+            background: #222;
+
+            border-radius: 20px;
+
+            z-index: 100;
+        }
+
+
+        /* =========================================
+           TELAS
+        ========================================= */
+
+        .screen {
+
+            width: 100%;
+
+            height: 100%;
+
+            padding: 45px 25px 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            animation:
+                aparecer 0.45s ease;
+        }
+
+
+        .hidden {
+
+            display: none !important;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           EMOJIS
+        ========================================= */
+
+        .emoji {
+
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            animation:
+                flutuar 2.2s infinite ease-in-out;
+        }
+
+
+        @keyframes flutuar {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        /* =========================================
+           TEXTOS
+        ========================================= */
+
+        h1 {
+
+            font-size: 1.75rem;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+
+            font-weight: 800;
+        }
+
+
+        h2 {
+
+            font-size: 1.4rem;
+
+            line-height: 1.3;
+
+            margin-bottom: 15px;
+
+            font-weight: 800;
+        }
+
+
+        p {
+
+            font-size: 1rem;
+
+            line-height: 1.5;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
+           BOTÕES
+        ========================================= */
+
+        button {
+
+            border: none;
+
+            background: white;
+
+            color: #d32f2f;
+
+            padding:
+                13px
+                24px;
+
+            border-radius: 30px;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 12px
+                rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        button:hover {
+
+            transform:
+                scale(1.05);
+
+            box-shadow:
+                0 7px 15px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        button:active {
+
+            transform:
+                scale(0.95);
+        }
+
+
+        /* =========================================
+           BOTÕES SIM / NÃO
+        ========================================= */
+
+        .btn-group {
+
+            width: 100%;
+
+            height: 100px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            position: relative;
+        }
+
+
+        #btnNao {
+
+            position: relative;
+
+            z-index: 10;
+
+            touch-action: manipulation;
+
+            transition:
+                left 0.35s ease,
+                top 0.35s ease,
+                transform 0.35s ease;
+        }
+
+
+        /* =========================================
+           OPÇÕES
+        ========================================= */
+
+        .options {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 5px;
+        }
+
+
+        .option {
+
+            min-height: 55px;
+
+            padding:
+                10px 6px;
+
+            font-size: 0.88rem;
+        }
+
+
+        /* =========================================
+           INPUTS
+        ========================================= */
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 18px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            background: white;
+
+            color: #333;
+        }
+
+
+        /* =========================================
+           RESUMO
+        ========================================= */
+
+        .summary {
+
+            width: 100%;
+
+            padding: 20px;
+
+            margin:
+                10px 0 20px;
+
+            background:
+                rgba(255, 255, 255, 0.14);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+            border-radius: 20px;
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+
+        .summary p {
+
+            margin-bottom: 11px;
+
+            font-size: 0.95rem;
+
+            text-align: left;
+        }
+
+
+        .summary p:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           CORAÇÃO FINAL
+        ========================================= */
+
+        .final-heart {
+
+            font-size: 90px;
+
+            margin-bottom: 15px;
+
+            animation:
+                pulsar 1.2s infinite;
+        }
+
+
+        @keyframes pulsar {
+
+            0% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.15);
+            }
+
+            100% {
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        /* =========================================
+           PEQUENO TEXTO
+        ========================================= */
+
+        .small-text {
+
+            font-size: 0.82rem;
+
+            opacity: 0.8;
+
+            margin-top: 12px;
+        }
+
+
+        /* =========================================
+           CELULARES PEQUENOS
+        ========================================= */
+
+        @media (max-width: 400px) {
+
+            body {
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        #d32f2f,
+                        #8e0000
+                    );
+            }
+
+
+            .phone-container {
+
+                width: 100vw;
+
+                height: 100vh;
+
+                border: none;
+
+                border-radius: 0;
+
+                box-shadow: none;
+            }
+
+
+            .phone-container::before {
+
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="phone-container">
+
+
+        <!-- =====================================
+             TELA 1
+        ====================================== -->
+
+        <section
+            id="telaInicio"
+            class="screen"
+        >
+
+            <div class="emoji">
+                💌
+            </div>
+
+
+            <h1>
+                Você recebeu um convite especial
+            </h1>
+
+
+            <p>
+                Tem uma coisa que eu queria te perguntar...
+            </p>
+
+
+            <button
+                onclick="mostrarTela('telaPergunta')"
+            >
+                Abrir convite ❤️
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 2 — PERGUNTA
+        ====================================== -->
+
+        <section
+            id="telaPergunta"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                🥰
+            </div>
+
+
+            <h2 id="perguntaTexto">
+                Quer sair comigo?
+            </h2>
+
+
+            <p id="textoNao">
+                Prometo que vai ser divertido ❤️
+            </p>
+
+
+            <div class="btn-group">
+
+                <button
+                    onclick="aceitou()"
+                >
+                    Sim ❤️
+                </button>
+
+
+                <button
+                    id="btnNao"
+                    onclick="clicouNao()"
+                >
+                    Não
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 3 — DATA
+        ====================================== -->
+
+        <section
+            id="telaData"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                📅
+            </div>
+
+
+            <h2>
+                Quando vamos sair?
+            </h2>
+
+
+            <p>
+                Escolha uma data para o nosso encontro.
+            </p>
+
+
+            <input
+                type="date"
+                id="data"
+            >
+
+
+            <button
+                onclick="confirmarData()"
+            >
+                Continuar ❤️
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 4 — HORÁRIO
+        ====================================== -->
+
+        <section
+            id="telaHora"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                🕐
+            </div>
+
+
+            <h2>
+                E que horas?
+            </h2>
+
+
+            <p>
+                Escolha o horário que funciona melhor.
+            </p>
+
+
+            <input
+                type="time"
+                id="hora"
+            >
+
+
+            <button
+                onclick="confirmarHora()"
+            >
+                Continuar ❤️
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 5 — COMIDA
+        ====================================== -->
+
+        <section
+            id="telaComida"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                🍽️
+            </div>
+
+
+            <h2>
+                Agora vem uma decisão importante...
+            </h2>
+
+
+            <p>
+                O que vamos comer?
+            </p>
+
+
+            <div class="options">
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🍕 Pizza')"
+                >
+                    🍕 Pizza
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🍔 Hambúrguer')"
+                >
+                    🍔 Hambúrguer
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🍣 Sushi')"
+                >
+                    🍣 Sushi
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🍝 Massas')"
+                >
+                    🍝 Massas
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🥩 Churrasco')"
+                >
+                    🥩 Churrasco
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherComida('🌮 Outra coisa')"
+                >
+                    🌮 Outra coisa
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 6 — PASSEIO
+        ====================================== -->
+
+        <section
+            id="telaPasseio"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                🌆
+            </div>
+
+
+            <h2>
+                E depois?
+            </h2>
+
+
+            <p>
+                Onde vamos aproveitar o resto do encontro?
+            </p>
+
+
+            <div class="options">
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('🚶 Caminhada')"
+                >
+                    🚶 Caminhada
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('🎬 Cinema')"
+                >
+                    🎬 Cinema
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('🌳 Parque')"
+                >
+                    🌳 Parque
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('🏞️ Praça')"
+                >
+                    🏞️ Praça
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('☕ Cafeteria')"
+                >
+                    ☕ Cafeteria
+                </button>
+
+
+                <button
+                    class="option"
+                    onclick="escolherPasseio('🎮 Lugar divertido')"
+                >
+                    🎮 Lugar divertido
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 7 — RESUMO
+        ====================================== -->
+
+        <section
+            id="telaResumo"
+            class="screen hidden"
+        >
+
+            <div class="emoji">
+                💕
+            </div>
+
+
+            <h2>
+                Então ficou combinado!
+            </h2>
+
+
+            <div class="summary">
+
+
+                <p>
+                    📅
+                    <strong>Data:</strong>
+                    <span id="resumoData"></span>
+                </p>
+
+
+                <p>
+                    🕐
+                    <strong>Horário:</strong>
+                    <span id="resumoHora"></span>
+                </p>
+
+
+                <p>
+                    🍽️
+                    <strong>Comida:</strong>
+                    <span id="resumoComida"></span>
+                </p>
+
+
+                <p>
+                    🌆
+                    <strong>Passeio:</strong>
+                    <span id="resumoPasseio"></span>
+                </p>
+
+            </div>
+
+
+            <p>
+                Agora só falta você aparecer. ❤️
+            </p>
+
+
+            <button
+                onclick="confirmarEncontro()"
+            >
+                Confirmar encontro 💖
+            </button>
+
+
+            <p class="small-text">
+                O WhatsApp será aberto com os detalhes do encontro.
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TELA 8 — FINAL
+        ====================================== -->
+
+        <section
+            id="telaFinal"
+            class="screen hidden"
+        >
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+
+            <h1>
+                Encontro marcado!
+            </h1>
+
+
+            <p>
+                Agora é só esperar o grande dia. 😊
+            </p>
+
+
+            <p>
+                Mal posso esperar!
+            </p>
+
+        </section>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================================
+           CONFIGURAÇÃO DO WHATSAPP
+        ========================================= */
+
+        /*
+           COLOQUE AQUI O SEU NÚMERO.
+
+           Exemplo:
+
+           (31) 99999-9999
+
+           vira:
+
+           5531999999999
+
+           Não coloque:
+           +
+           espaços
+           parênteses
+           hífens
+        */
+
+        const numeroWhatsApp =
+            "5531971028073";
+
+
+        /* =========================================
+           VARIÁVEIS
+        ========================================= */
+
+        let tentativasNao = 0;
+
+        let dataEscolhida = "";
+
+        let horaEscolhida = "";
+
+        let comidaEscolhida = "";
+
+        let passeioEscolhido = "";
+
+
+        /* =========================================
+           TROCAR DE TELA
+        ========================================= */
+
+        function mostrarTela(id) {
+
+            const telas =
+                document.querySelectorAll(".screen");
+
+
+            telas.forEach(function(tela) {
+
+                tela.classList.add("hidden");
+
+            });
+
+
+            const novaTela =
+                document.getElementById(id);
+
+
+            novaTela.classList.remove("hidden");
+
+        }
+
+
+        /* =========================================
+           SIM
+        ========================================= */
+
+        function aceitou() {
+
+            mostrarTela("telaData");
+
+        }
+
+
+        /* =========================================
+           NÃO
+        ========================================= */
+
+        function clicouNao() {
+
+            tentativasNao++;
+
+
+            const botao =
+                document.getElementById("btnNao");
+
+
+            const texto =
+                document.getElementById("textoNao");
+
+
+            /* ================================
+               1ª TENTATIVA
+            ================================= */
+
+            if (tentativasNao === 1) {
+
+                botao.innerText =
+                    "Tem certeza?";
+
+                texto.innerText =
+                    "Pensa com carinho... 🥺";
+
+
+                fugirDoBotao();
+
+            }
+
+
+            /* ================================
+               2ª TENTATIVA
+            ================================= */
+
+            else if (tentativasNao === 2) {
+
+                botao.innerText =
+                    "Sério?";
+
+                texto.innerText =
+                    "Você nem me deu uma chance! 😭";
+
+
+                fugirDoBotao();
+
+            }
+
+
+            /* ================================
+               3ª TENTATIVA
+            ================================= */
+
+            else if (tentativasNao === 3) {
+
+                botao.innerText =
+                    "Calma aí!";
+
+                texto.innerText =
+                    "Você está tentando fugir do encontro? 😂";
+
+
+                fugirDoBotao();
+
+            }
+
+
+            /* ================================
+               4ª TENTATIVA
+            ================================= */
+
+            else if (tentativasNao === 4) {
+
+                botao.innerText =
+                    "Não adianta!";
+
+                texto.innerText =
+                    "Esse botão está começando a ficar esperto... 😏";
+
+
+                fugirDoBotao();
+
+            }
+
+
+            /* ================================
+               5ª TENTATIVA
+            ================================= */
+
+            else {
+
+                botao.remove();
+
+                texto.innerText =
+                    "Acho que agora só resta uma opção... ❤️";
+
+            }
+
+        }
+
+
+        /* =========================================
+           FAZER O BOTÃO FUGIR
+        ========================================= */
+
+        function fugirDoBotao() {
+
+            const botao =
+                document.getElementById("btnNao");
+
+
+            /*
+               Limites do movimento.
+
+               Mantemos o botão relativamente
+               próximo da área central para
+               evitar que ele saia da tela.
+            */
+
+            const movimentos = [
+
+                {
+                    x: -75,
+                    y: -35
+                },
+
+                {
+                    x: 75,
+                    y: -45
+                },
+
+                {
+                    x: -90,
+                    y: 40
+                },
+
+                {
+                    x: 90,
+                    y: 35
+                },
+
+                {
+                    x: 0,
+                    y: -55
+                },
+
+                {
+                    x: 65,
+                    y: 50
+                }
+
+            ];
+
+
+            /*
+               Escolhe uma posição aleatória.
+            */
+
+            const posicao =
+                movimentos[
+                    Math.floor(
+                        Math.random()
+                        * movimentos.length
+                    )
+                ];
+
+
+            botao.style.transform =
+                `translate(${posicao.x}px, ${posicao.y}px)`;
+
+        }
+
+
+        /* =========================================
+           DATA
+        ========================================= */
+
+        function confirmarData() {
+
+            const campo =
+                document.getElementById("data");
+
+
+            if (!campo.value) {
+
+                alert(
+                    "Escolha uma data primeiro ❤️"
+                );
+
+                return;
+
+            }
+
+
+            dataEscolhida =
+                campo.value;
+
+
+            /*
+               Transforma:
+
+               2026-09-28
+
+               em:
+
+               28/09/2026
+            */
+
+            const partes =
+                dataEscolhida.split("-");
+
+
+            dataEscolhida =
+                `${partes[2]}/${partes[1]}/${partes[0]}`;
+
+
+            mostrarTela("telaHora");
+
+        }
+
+
+        /* =========================================
+           HORA
+        ========================================= */
+
+        function confirmarHora() {
+
+            const campo =
+                document.getElementById("hora");
+
+
+            if (!campo.value) {
+
+                alert(
+                    "Escolha um horário primeiro ❤️"
+                );
+
+                return;
+
+            }
+
+
+            horaEscolhida =
+                campo.value;
+
+
+            mostrarTela("telaComida");
+
+        }
+
+
+        /* =========================================
+           COMIDA
+        ========================================= */
+
+        function escolherComida(comida) {
+
+            comidaEscolhida =
+                comida;
+
+
+            mostrarTela("telaPasseio");
+
+        }
+
+
+        /* =========================================
+           PASSEIO
+        ========================================= */
+
+        function escolherPasseio(passeio) {
+
+            passeioEscolhido =
+                passeio;
+
+
+            /*
+               Preenche o resumo.
+            */
+
+            document.getElementById(
+                "resumoData"
+            ).innerText =
+                dataEscolhida;
+
+
+            document.getElementById(
+                "resumoHora"
+            ).innerText =
+                horaEscolhida;
+
+
+            document.getElementById(
+                "resumoComida"
+            ).innerText =
+                comidaEscolhida;
+
+
+            document.getElementById(
+                "resumoPasseio"
+            ).innerText =
+                passeioEscolhido;
+
+
+            mostrarTela("telaResumo");
+
+        }
+
+
+        /* =========================================
+           WHATSAPP
+        ========================================= */
+
+        function confirmarEncontro() {
+
+
+            /*
+               Mensagem que será enviada.
+
+               encodeURIComponent()
+               transforma a mensagem em um formato
+               que pode ser colocado dentro do link.
+            */
+
+            const mensagem =
+
+`💕 Convite aceito!
+
+📅 Data: ${dataEscolhida}
+
+🕐 Horário: ${horaEscolhida}
+
+🍽️ Comida: ${comidaEscolhida}
+
+🌆 Depois: ${passeioEscolhido}
+
+Agora o encontro está oficialmente marcado. ❤️`;
+
+
+            /*
+               Cria o link do WhatsApp.
+            */
+
+            const url =
+
+                `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+
+            /*
+               Abre o WhatsApp.
+            */
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+
+            /*
+               Mostra a tela final.
+            */
+
+            mostrarTela("telaFinal");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
